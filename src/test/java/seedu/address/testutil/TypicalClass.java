@@ -17,7 +17,10 @@ import seedu.address.model.education.Class;
  */
 public class TypicalClass {
 
-    private static final Class CLASS_MATH = new ClassBuilder().withName("math 101").withSubject("Mathematics")
+    public static final Class CLASS_CS2103T = new ClassBuilder().withName("T2")
+            .withSubject("CS2103T").withStartDate("15/01/2018").withEndDate("28/04/2018")
+            .withStudents(STUDENT_ANGUS.getName().fullName).build();
+    public static final Class CLASS_MATH = new ClassBuilder().withName("math 101").withSubject("Mathematics")
             .withStartDate("30/08/2018").withEndDate("30/12/2019")
             .withStudents(STUDENT_COOPER.getName().fullName, STUDENT_DAVID.getName().fullName).build();
     private static final Class CLASS_BIOLOGY = new ClassBuilder().withName("Bio 01").withSubject("Biology")
@@ -29,6 +32,6 @@ public class TypicalClass {
             .withStudents(STUDENT_EMILY.getName().fullName).build();
 
     public static List<Class> getTypicalClasses() {
-        return new ArrayList<>(Arrays.asList(CLASS_MATH, CLASS_BIOLOGY, CLASS_PHYSICS));
+        return new ArrayList<>(Arrays.asList(CLASS_MATH, CLASS_BIOLOGY, CLASS_PHYSICS, CLASS_CS2103T));
     }
 }

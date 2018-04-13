@@ -69,7 +69,7 @@ public class TypicalPersons {
     // Students
     public static final Student STUDENT_ANGUS = new StudentBuilder().withName("Angus Wyndham")
             .withPhone("9867723").withEmail("wynd@example.com").withAddress("Centre Street")
-            .withSubjects("Biology").build();
+            .withSubjects("CS2103T", "Biology").build();
     public static final Student STUDENT_BRUCE = new StudentBuilder().withName("Bruce Wayne")
             .withPhone("9575232").withEmail("star@example.com").withAddress("Hollywood")
             .withSubjects().build();
