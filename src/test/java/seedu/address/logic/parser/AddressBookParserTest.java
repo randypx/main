@@ -5,16 +5,25 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.commons.core.Messages.MESSAGE_UNKNOWN_COMMAND;
+import static seedu.address.logic.commands.CommandTestUtil.CLASS_MATH_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.END_DATE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.END_TIME_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.PREAMBLE_SUBJECT_MATH;
+import static seedu.address.logic.commands.CommandTestUtil.START_DATE_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.START_TIME_DESC;
 import static seedu.address.logic.commands.CommandTestUtil.TITLE_DESC;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_CLASS_MATH;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_END_DATE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_END_TIME;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_START_DATE;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_START_TIME;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_SUBJECT_MATH;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TITLE;
 import static seedu.address.logic.commands.ListCommand.COMMAND_WORD;
 import static seedu.address.logic.commands.ListCommand.TYPE_APPOINTMENT;
 import static seedu.address.logic.commands.ListCommand.TYPE_CONTACT;
 import static seedu.address.logic.commands.ListCommand.TYPE_SHORTCUT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_INDEX;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PATH;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_RANGE;
@@ -27,6 +36,7 @@ import static seedu.address.testutil.ExportCommandHelper.TAG_NEEDED;
 import static seedu.address.testutil.ExportCommandHelper.TYPE_NEEDED;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,6 +45,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import seedu.address.commons.core.index.Index;
 import seedu.address.logic.commands.AddCommand;
 import seedu.address.logic.commands.ChangeThemeCommand;
 import seedu.address.logic.commands.ClearCommand;
@@ -45,6 +56,7 @@ import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.ExportCommand;
 import seedu.address.logic.commands.FindCommand;
+import seedu.address.logic.commands.FormCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.HistoryCommand;
 import seedu.address.logic.commands.ImportCommand;
@@ -57,10 +69,12 @@ import seedu.address.logic.commands.ShortcutCommand;
 import seedu.address.logic.commands.ToggleCalendarViewCommand;
 import seedu.address.logic.commands.UndoCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.education.Subject;
 import seedu.address.model.event.Appointment;
 import seedu.address.model.event.Task;
 import seedu.address.model.event.Time;
 import seedu.address.model.event.Title;
+import seedu.address.model.person.Name;
 import seedu.address.model.person.NameContainsKeywordsPredicate;
 import seedu.address.model.person.Person;
 import seedu.address.model.tag.Tag;
@@ -244,4 +258,17 @@ public class AddressBookParserTest {
                 (ChangeThemeCommand) parser.parseCommand(ChangeThemeCommand.COMMAND_WORD + " " + "dark");
         assertEquals(new ChangeThemeCommand("dark"), command);
     }
+
+    @Test
+    public void parseCommand_form() throws Exception {
+        FormCommand command =
+                (FormCommand) parser.parseCommand(FormCommand.COMMAND_WORD + PREAMBLE_SUBJECT_MATH
+                        + CLASS_MATH_DESC + START_DATE_DESC + END_DATE_DESC + " " + PREFIX_INDEX + "1,2");
+
+        assertEquals(new FormCommand(new Name(VALID_CLASS_MATH), new Subject(VALID_SUBJECT_MATH),
+                new Time(VALID_START_DATE, true), new Time(VALID_END_DATE, true),
+                new ArrayList<>(Arrays.asList(Index.fromOneBased(1), Index.fromOneBased(2)))), command);
+    }
+
+
 }

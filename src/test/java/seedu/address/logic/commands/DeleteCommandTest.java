@@ -24,6 +24,7 @@ import seedu.address.model.UserPrefs;
 import seedu.address.model.event.Appointment;
 import seedu.address.model.event.Task;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Student;
 
 /**
  * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand) and unit tests for
@@ -83,6 +84,22 @@ public class DeleteCommandTest {
         assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
+    @Test
+    public void execute_validIndexStudentList_success() throws Exception {
+        model.updateFilteredPersonList(Model.PREDICATE_SHOW_ONLY_STUDENTS);
+        showPersonAtIndex(model, INDEX_FIRST);
+
+        Student studentToDelete = (Student) model.getFilteredPersonList().get(INDEX_FIRST.getZeroBased());
+        DeleteCommand deleteCommand = prepareCommand(INDEX_FIRST);
+
+        String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_STUDENT_SUCCESS, studentToDelete);
+
+        Model expectedModel = new ModelManager(model.getAddressBook(), new UserPrefs());
+        expectedModel.deleteStudent(studentToDelete);
+        showNoPerson(expectedModel);
+
+        assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
+    }
     //@@author Sisyphus25
     @Test
     public void execute_validIndexDeleteAppointment_success() throws Exception {

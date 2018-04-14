@@ -80,6 +80,12 @@ public class AddressBookTest {
     }
 
     @Test
+    public void getStudentList_modifyList_throwsUnsupportedOperationException() {
+        thrown.expect(UnsupportedOperationException.class);
+        addressBook.getStudentList().remove(0);
+    }
+
+    @Test
     public void getTagList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
         addressBook.getTagList().remove(0);
@@ -97,14 +103,20 @@ public class AddressBookTest {
         addressBook.getTaskList().remove(0);
     }
 
+    @Test
+    public void getClassList_modifyList_throwsUnsupportedOperationException() {
+        thrown.expect(UnsupportedOperationException.class);
+        addressBook.getClassList().remove(0);
+    }
+
     //@@author shanmu9898
     @Test
     public void getShortcutList_modifyList_throwsUnsupportedOperationException() {
         thrown.expect(UnsupportedOperationException.class);
         addressBook.getCommandsList().remove(0);
     }
-    //@@author shanmu9898
 
+    //@@author
     /**
      * A stub ReadOnlyAddressBook whose persons, tags and events lists can violate interface constraints.
      */

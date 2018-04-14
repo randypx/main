@@ -40,23 +40,23 @@ public class TypicalPersons {
             .withEmail("johnd@example.com").withPhone("98765432")
             .withTags("owesMoney", "friends").build();
     public static final Person CARL = new PersonBuilder().withName("Carl Kurz").withPhone("95352563")
-            .withEmail("heinz@example.com").withAddress("wall street").build();
+            .withEmail("heinz@example.com").withAddress("wall street").withTags().build();
     public static final Person DANIEL = new PersonBuilder().withName("Daniel Meier").withPhone("87652533")
-            .withEmail("cornelia@example.com").withAddress("10th street").build();
+            .withEmail("cornelia@example.com").withAddress("10th street").withTags("smart").build();
     public static final Person ELLE = new PersonBuilder().withName("Elle Meyer").withPhone("9482224")
-            .withEmail("werner@example.com").withAddress("michegan ave").build();
+            .withEmail("werner@example.com").withAddress("michegan ave").withTags().build();
     public static final Person FIONA = new PersonBuilder().withName("Fiona Kunz").withPhone("9482427")
-            .withEmail("lydia@example.com").withAddress("little tokyo").build();
+            .withEmail("lydia@example.com").withAddress("little tokyo").withTags().build();
     public static final Person GEORGE = new PersonBuilder().withName("George Best").withPhone("9482442")
-            .withEmail("anna@example.com").withAddress("4th street").build();
+            .withEmail("anna@example.com").withAddress("4th street").withTags().build();
 
     // Manually added
     public static final Person HOON = new PersonBuilder().withName("Hoon Meier").withPhone("8482424")
-            .withEmail("stefan@example.com").withAddress("little india").build();
+            .withEmail("stefan@example.com").withAddress("little india").withTags().build();
     public static final Person IDA = new PersonBuilder().withName("Ida Mueller").withPhone("8482131")
-            .withEmail("hans@example.com").withAddress("chicago ave").build();
+            .withEmail("hans@example.com").withAddress("chicago ave").withTags().build();
     public static final Person DING = new PersonBuilder().withName("Ding Thunderstorm").withPhone("81524871")
-            .withEmail("hansolo@example.com").withAddress("Science Park Road").build();
+            .withEmail("hansolo@example.com").withAddress("Science Park Road").withTags().build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Person AMY = new PersonBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
@@ -69,36 +69,40 @@ public class TypicalPersons {
     // Students
     public static final Student STUDENT_ANGUS = new StudentBuilder().withName("Angus Wyndham")
             .withPhone("9867723").withEmail("wynd@example.com").withAddress("Centre Street")
-            .withSubjects("CS2103T", "Biology").build();
+            .withSubjects("CS2103T", "Biology").withTags().build();
     public static final Student STUDENT_BRUCE = new StudentBuilder().withName("Bruce Wayne")
             .withPhone("9575232").withEmail("star@example.com").withAddress("Hollywood")
-            .withSubjects().build();
+            .withSubjects().withTags().build();
     public static final Student STUDENT_COOPER = new StudentBuilder().withName("Cooper Crouch")
             .withPhone("9247637").withEmail("freeman@example.com").withAddress("Kansas")
-            .withSubjects("Mathematics", "Biology").build();
+            .withSubjects("Mathematics", "Biology").withTags().build();
     public static final Student STUDENT_DAVID = new StudentBuilder().withName("David Gray")
             .withPhone("9234718").withEmail("alien@example.com").withAddress("Chinatown")
-            .withSubjects("Mathematics").build();
+            .withSubjects("Mathematics").withTags().build();
     public static final Student STUDENT_EMILY = new StudentBuilder().withName("Emily Walter")
             .withPhone("8537425").withEmail("lily@example.com").withAddress("4th Avenue")
-            .withSubjects("Biology", "Physics").build();
+            .withSubjects("Biology", "Physics").withTags().build();
 
     // Manually added
     public static final Student STUDENT_FAUST = new StudentBuilder().withName("Faust Meier")
             .withPhone("9524284").withEmail("mephist@example.com").withAddress("raffles hall")
-            .withTags("absent").build();
+            .withTags("absent").withSubjects().build();
     public static final Student STUDENT_GUASS = new StudentBuilder().withName("Guass Muller")
-            .withPhone("8824681").withEmail("greg@example.com").withAddress("university town").build();
+            .withPhone("8824681").withEmail("greg@example.com").withAddress("university town")
+            .withSubjects().build();
     public static final Student STUDENT_HELEN = new StudentBuilder().withName("Hellen Wetscott")
-            .withPhone("8315264").withEmail("knight@example.com").withAddress("Sentosa Resort").build();
+            .withPhone("8315264").withEmail("knight@example.com").withAddress("Sentosa Resort")
+            .withSubjects().build();
     public static final Student STUDENT_ILLYA = new StudentBuilder().withName("Illya Einzbern")
-            .withPhone("9275423").withEmail("berserker@example.com").withAddress("fuyuki").build();
+            .withPhone("9275423").withEmail("berserker@example.com").withAddress("fuyuki")
+            .withSubjects().build();
 
     // Manually added - Person's details found in {@code CommandTestUtil}
     public static final Student STUDENT_AMY = new StudentBuilder().withName(VALID_NAME_AMY).withPhone(VALID_PHONE_AMY)
-            .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withTags().build();
+            .withEmail(VALID_EMAIL_AMY).withAddress(VALID_ADDRESS_AMY).withTags().withSubjects().build();
     public static final Student STUDENT_BOB = new StudentBuilder().withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
-            .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_STUDENT).build();
+            .withEmail(VALID_EMAIL_BOB).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_STUDENT)
+            .withSubjects().build();
 
     //@@author
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER

@@ -17,6 +17,9 @@ import seedu.address.model.education.Class;
  */
 public class TypicalClass {
 
+    public static final Class CLASS_CHEMISTRY = new ClassBuilder().withName("chem")
+            .withSubject("Chemistry").withStartDate("01/01/2018").withEndDate("01/01/2019")
+            .withStudents(STUDENT_COOPER.getName().fullName).build();
     public static final Class CLASS_CS2103T = new ClassBuilder().withName("T2")
             .withSubject("CS2103T").withStartDate("15/01/2018").withEndDate("28/04/2018")
             .withStudents(STUDENT_ANGUS.getName().fullName).build();

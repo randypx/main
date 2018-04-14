@@ -58,10 +58,15 @@ public class FormCommand extends UndoableCommand {
      * Creates an FormCommand to form the specified {@code Class}
      */
     public FormCommand(Name name, Subject subj, Time start, Time end, List<Index> indexes) {
+        requireNonNull(name);
         className = name;
+        requireNonNull(subj);
         subject = subj;
+        requireNonNull(start);
         startTime = start;
+        requireNonNull(end);
         endTime = end;
+        requireNonNull(indexes);
         indexList = indexes;
     }
 
@@ -83,7 +88,8 @@ public class FormCommand extends UndoableCommand {
 
         for (Index targetIndex: indexList) {
             if (targetIndex.getZeroBased() >= lastShownList.size()) {
-                throw new CommandException(String.format(Messages.MESSAGE_INVALID_INDEX, targetIndex.getOneBased()));
+                throw new CommandException(String.format(Messages.MESSAGE_INVALID_INDEX,
+                        targetIndex.getOneBased()));
             }
 
             if (lastShownList.get(targetIndex.getZeroBased()) instanceof Student) {
@@ -103,6 +109,10 @@ public class FormCommand extends UndoableCommand {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof FormCommand // instanceof handles nulls
-                && toAdd.equals(((FormCommand) other).toAdd));
+                && className.equals(((FormCommand) other).className))
+                && subject.equals(((FormCommand) other).subject)
+                && startTime.equals(((FormCommand) other).startTime)
+                && endTime.equals(((FormCommand) other).endTime)
+                && indexList.equals(((FormCommand) other).indexList);
     }
 }

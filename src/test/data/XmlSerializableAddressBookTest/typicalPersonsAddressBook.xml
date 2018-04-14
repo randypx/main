@@ -37,6 +37,10 @@
         <phone>87652533</phone>
         <email>cornelia@example.com</email>
         <address>10th street</address>
+        <tagged>
+            <tagName>smart</tagName>
+            <tagColorStyle>red</tagColorStyle>
+        </tagged>
     </persons>
     <persons>
         <name>Elle Meyer</name>
@@ -61,6 +65,7 @@
         <phone>9867723</phone>
         <email>wynd@example.com</email>
         <address>Centre Street</address>
+        <subjectList>CS2103T</subjectList>
         <subjectList>Biology</subjectList>
     </students>
     <students>
@@ -93,12 +98,17 @@
         <subjectList>Physics</subjectList>
     </students>
     <tags>
+        <tagName>friends</tagName>
+        <tagColorStyle>brown</tagColorStyle>
+    </tags>
+    <tags>
         <tagName>owesMoney</tagName>
         <tagColorStyle>teal</tagColorStyle>
     </tags>
+
     <tags>
-        <tagName>friends</tagName>
-        <tagColorStyle>brown</tagColorStyle>
+        <tagName>smart</tagName>
+        <tagColorStyle>red</tagColorStyle>
     </tags>
     <appointments>
         <title>Meeting with parents</title>
@@ -143,5 +153,12 @@
         <startDate>04/07/2018</startDate>
         <endDate>04/12/2018</endDate>
         <students>Emily Walter</students>
+    </classList>
+    <classList>
+        <name>T2</name>
+        <subject>CS2103T</subject>
+        <startDate>15/01/2018</startDate>
+        <endDate>28/04/2018</endDate>
+        <students>Angus Wyndham</students>
     </classList>
 </addressbook>
