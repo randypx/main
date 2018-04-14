@@ -118,7 +118,8 @@ public class ModelManagerTest {
     }
 
     @Test
-    public void removeStudent_removeStudentFromAddressBook_evokeAddressBookChangedEvent() throws PersonNotFoundException {
+    public void removeStudent_removeStudentFromAddressBook_evokeAddressBookChangedEvent()
+            throws PersonNotFoundException {
         ModelManager modelManager = new ModelManager(addressBook, userPrefs);
         modelManager.deleteStudent(STUDENT_ANGUS);
         assertTrue(eventsCollectorRule.eventsCollector.getMostRecent() instanceof AddressBookChangedEvent);
@@ -132,7 +133,8 @@ public class ModelManagerTest {
     }
 
     @Test
-    public void removeClass_removeClassFromAddressBook_evokeAddressBookChangedEvent() throws StudentClassNotFoundException {
+    public void removeClass_removeClassFromAddressBook_evokeAddressBookChangedEvent()
+            throws StudentClassNotFoundException {
         ModelManager modelManager = new ModelManager(addressBook, userPrefs);
         modelManager.deleteClass(CLASS_CS2103T);
         assertTrue(eventsCollectorRule.eventsCollector.getMostRecent() instanceof AddressBookChangedEvent);
